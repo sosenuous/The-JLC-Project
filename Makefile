@@ -1,15 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
-TARGET = mat
-SRC = mat.c
+CFLAGS = -Wall -Wextra
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+all: mat jgrep
 
-install: $(TARGET)
-	sudo cp $(TARGET) /usr/bin/$(TARGET)
+mat: mat.c
+	$(CC) $(CFLAGS) mat.c -o mat
+
+jgrep: jgrep.c
+	$(CC) $(CFLAGS) jgrep.c -o jgrep
 
 clean:
-	rm -f $(TARGET)
+	rm -f mat jgrep
 
-.PHONY: clean install
+install: mat jgrep
+	sudo cp mat jgrep /usr/bin/
