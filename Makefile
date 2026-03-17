@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-all: mat jgrep move
+all: mat jgrep move cpy
 
 mat: mat.c
 	$(CC) $(CFLAGS) mat.c -o mat
@@ -12,8 +12,11 @@ jgrep: jgrep.c
 move: move.c
 	$(CC) $(CFLAGS) move.c -o move
 
-clean:
-	rm -f mat jgrep
+cpy cpy.c:
+	$(CC) $(CFLAGS) cpy.c -o cpy
 
-install: mat jgrep move
-	sudo cp mat jgrep move /usr/bin/
+clean:
+	rm -f mat jgrep move cpy
+
+install: mat jgrep move cpy
+	sudo cp mat jgrep move cpy /usr/bin/
