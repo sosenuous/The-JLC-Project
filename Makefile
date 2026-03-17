@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-all: mat jgrep move cpy print
+all: mat jgrep move cpy print lf
 
 mat: mat.c
 	$(CC) $(CFLAGS) mat.c -o mat
@@ -18,8 +18,11 @@ cpy cpy.c:
 print: print.c
 	$(CC) $(CFLAGS) print.c -o print
 
-clean:
-	rm -f mat jgrep move cpy print
+lf: lf.c
+	$(CC) $(CFLAGS) lf.c -o lf
 
-install: mat jgrep move cpy
-	sudo cp mat jgrep move cpy print /usr/bin/
+clean:
+	rm -f mat jgrep move cpy print lf
+
+install: mat jgrep move cpy lf
+	sudo cp mat jgrep move cpy print lf /usr/bin/
