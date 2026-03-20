@@ -6,8 +6,8 @@ int main(int argc, char** argv) {
         printf("Usage: cpy <source> <destination>\n");
         return 1;
     }
-    FILE *source = fopen(argv[1], "r");
-    FILE *destination = fopen(argv[2], "w");
+    FILE *source = fopen(argv[1], "rb");
+    FILE *destination = fopen(argv[2], "wb");
     if (source == NULL) {
         perror("FATAL ERROR");
         return 2;
@@ -17,8 +17,11 @@ int main(int argc, char** argv) {
         return 2;
     }
     char buff[BUFFSIZE];
-    while (fgets(buff, BUFFSIZE, source) != NULL) {
-        fputs(buff, destination);
+    while (fread(buff, 1, BUFFSIZE, source) > 0) {
+        if (fwrite(buff, 1, BUFFSIZE, destination) < 0) {
+            perror("FATAL ERROR");
+            return 3;
+        }
     }
     fclose(source);
     fclose(destination);
