@@ -16,3 +16,5 @@ Note: this software is under the GPLV3 licence, see the licence file for details
 - **print**: Print text
 - **spec**: Show file information
 - **srt**: Sort lines in a file
+- **brit**: Create a new file with specified content
+- **hn**: Show hostname
