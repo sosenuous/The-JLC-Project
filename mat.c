@@ -1,29 +1,20 @@
-#include <fcntl.h>
 #include <stdio.h>
-#include <sys/sendfile.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include <stdlib.h>
+#define BUFFSIZE 1024
 int main(int argc, char** argv) {
-    if(argc != 2) {
-        fprintf(stderr, "Usage: mat <file>\n");
+    if (argc != 2) {
+        printf("Usage: mat <file>\n");
         return 1;
     }
-    int fd = open(argv[1], O_RDONLY);
-    if(fd == -1) {
+    FILE *f = fopen(argv[1], "r");
+    if (f == NULL) {
         perror("FATAL ERROR");
         return 2;
     }
-
-    struct stat file_stat;
-    if(stat(argv[1], &file_stat) == -1) {
-        perror("FATAL ERROR");
-        return 3;
+    char buff[BUFFSIZE];
+    while (fgets(buff, BUFFSIZE, f) != NULL) {
+        printf("%s", buff);
     }
-
-    if(sendfile(STDOUT_FILENO, fd, NULL, file_stat.st_size) == -1) {
-        perror("FATAL ERROR");
-        return 4;
-    }
-    close(fd);
+    fclose(f);
     return 0;
 }
