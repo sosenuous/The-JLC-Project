@@ -6,7 +6,7 @@ Note: this software is under the GPLV3 licence, see the licence file for details
 
 ## Utilities Included
 
-- **chown**: Change file owner and group
+- **chwn**: Change file owner and group
 - **cpy**: Copy files
 - **jgrep**: Search for patterns in files
 - **lf**: List files
