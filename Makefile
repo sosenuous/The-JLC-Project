@@ -38,5 +38,3 @@ clean:
 
 install: mat jgrep move cpy lf perm spec srt chown
 	sudo cp mat jgrep move cpy print lf perm spec srt chown /usr/bin/
-	sudo cp chown.1 /usr/share/man/man1/
-	sudo mandb
