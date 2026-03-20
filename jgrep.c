@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    free(buff);
+    free(buf);
     if (argc == 3) {
         fclose(file);
     }
