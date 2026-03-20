@@ -19,6 +19,7 @@ int main(int argc, char** argv) {
     }
     size_t capacity = BUFFSIZE;
     char* buf = malloc(capacity);
+    int found = 0;
     for (;;) {          // outer — one line per iteration
         size_t len = 0;
         int got_line = 0;
@@ -41,13 +42,16 @@ int main(int argc, char** argv) {
 
         if (strstr(buf, argv[1]) != NULL) {
             printf("%s", buf);
+            found = 1;
         }
     }
     if (buf == NULL) {
         perror("FATAL ERROR");
         return 1;
     }
-
+    if (!found) {
+        printf("NOT FOUND!\n");
+    }
     free(buf);
     if (argc == 3) {
         fclose(file);
