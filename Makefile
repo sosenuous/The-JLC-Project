@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra
 BINDIR = /usr/bin
 MANDIR = /usr/share/man/man1
 
-BINS = mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt
+BINS = mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt wm
 
 MANS = man/man1/brit.1 man/man1/chwn.1 man/man1/cnt.1 man/man1/cpy.1 \
        man/man1/cwd.1 man/man1/del.1 man/man1/dt.1 man/man1/env.1 \
@@ -14,7 +14,6 @@ MANS = man/man1/brit.1 man/man1/chwn.1 man/man1/cnt.1 man/man1/cpy.1 \
        man/man1/srt.1 man/man1/tch.1 man/man1/tl.1
 
 all: $(BINS)
-
 
 mat: mat.c
 	$(CC) $(CFLAGS) mat.c -o mat
@@ -87,3 +86,17 @@ dt: dt.c
 
 wm: wm.c
 	$(CC) $(CFLAGS) wm.c -o wm
+
+clean:
+	rm -f $(BINS)
+
+install: all
+	install -d $(BINDIR) $(MANDIR)
+	install -m 755 $(BINS) $(BINDIR)
+	install -m 644 $(MANS) $(MANDIR)
+	-mandb -q
+
+uninstall:
+	cd $(BINDIR) && rm -f $(BINS)
+	cd $(MANDIR) && rm -f $(notdir $(MANS))
+	-mandb -q
