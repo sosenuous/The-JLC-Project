@@ -74,6 +74,7 @@ These are the existing tools — read their source before writing a new one to u
 | `srt`   | `srt.c`      | Sort lines in a file alphabetically              |
 | `tch`   | `tch.c`      | Create file or update modification time          |
 | `tl`    | `tl.c`       | Print last N lines of file (like `tail`)         |
+| `nap`   | `nap.c`      | Sleep for a specified number of seconds          |
 
 ---
 

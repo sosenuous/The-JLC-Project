@@ -73,6 +73,7 @@ Requires: `gcc`, `make`, a POSIX system (Linux, BSD).
 | `hn`   | `hostname` | `hn [name]`                    | Show hostname; optionally set it                 |
 | `env`  | `printenv` | `env [prefix]`                 | Print environment; optional prefix filter        |
 | `print`| `echo`     | `print "text"`                 | Print a string to stdout                         |
+| `nap`  | `sleep`    | `nap <seconds>`                | Sleep for a specified number of seconds          |
 
 ---
 
