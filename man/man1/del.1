@@ -1,0 +1,57 @@
+.TH DEL 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+del \- delete files or directories
+.SH SYNOPSIS
+.B del
+.RI [ \-r ]
+.IR file ...
+.SH DESCRIPTION
+.B del
+removes each
+.IR file .
+With
+.BR \-r ,
+directories are removed recursively.
+Without
+.BR \-r ,
+attempting to delete a directory is an error.
+.PP
+The entries
+.B .
+and
+.B ..
+are always skipped when traversing directories.
+.SH OPTIONS
+.TP
+.B \-r
+Recursively delete directories and their contents.
+.SH EXIT STATUS
+.TP
+.B 0
+All targets removed successfully.
+.TP
+.B 1
+Wrong number of arguments or missing target name.
+.TP
+.B 2
+Cannot open or read directory.
+.TP
+.B 3
+.BR remove (3)
+failed for a file or directory.
+.SH EXAMPLES
+.TP
+Delete a single file:
+.EX
+del old.log
+.EE
+.TP
+Recursively delete a directory:
+.EX
+del -r tmp/
+.EE
+.SH SEE ALSO
+.BR rm (1),
+.BR mkd (1)
+.SH AUTHORS
+The-JLC-Project contributors.

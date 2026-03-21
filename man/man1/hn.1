@@ -1,0 +1,38 @@
+.TH HN 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+hn \- show or set the system hostname
+.SH SYNOPSIS
+.B hn
+.RI [ name ]
+.SH DESCRIPTION
+.B hn
+with no arguments prints the current hostname to standard output.
+With a
+.I name
+argument it sets the system hostname using
+.BR sethostname (2).
+Setting the hostname requires appropriate privileges (typically root).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+.BR gethostname (2)
+or
+.BR sethostname (2)
+failed.
+.SH EXAMPLES
+.TP
+Print the current hostname:
+.B hn
+.TP
+Set the hostname:
+.EX
+hn mybox
+.EE
+.SH SEE ALSO
+.BR hostname (1),
+.BR uname (1)
+.SH AUTHORS
+The-JLC-Project contributors.

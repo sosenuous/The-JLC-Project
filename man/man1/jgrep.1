@@ -1,0 +1,50 @@
+.TH JGREP 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+jgrep \- search for a pattern in files or stdin
+.SH SYNOPSIS
+.B jgrep
+.I pattern
+.RI [ file ...]
+.SH DESCRIPTION
+.B jgrep
+reads each
+.I file
+(or standard input if no files are given) line by line and prints every line
+that contains
+.IR pattern .
+Pattern matching uses
+.BR strstr (3)
+(case-sensitive, literal string match).
+This is a minimal JLC equivalent of
+.BR grep (1).
+.SH EXIT STATUS
+.TP
+.B 0
+At least one match found.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open a file.
+.SH EXAMPLES
+.TP
+Search for "error" in a log file:
+.EX
+jgrep error /var/log/syslog
+.EE
+.TP
+Search stdin:
+.EX
+dmesg | jgrep usb
+.EE
+.TP
+Search multiple files:
+.EX
+jgrep TODO *.c
+.EE
+.SH SEE ALSO
+.BR grep (1),
+.BR srt (1)
+.SH AUTHORS
+The-JLC-Project contributors.

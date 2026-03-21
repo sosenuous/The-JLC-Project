@@ -1,0 +1,55 @@
+.TH HD 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+hd \- print the first N lines of a file
+.SH SYNOPSIS
+.B hd
+.RI [ \-n
+.IR count ]
+.IR file ...
+.SH DESCRIPTION
+.B hd
+prints the first
+.I count
+lines of each
+.IR file .
+The default is 10 lines.
+If no file is given, standard input is read.
+Multiple files are separated by a header line.
+This is the JLC equivalent of
+.BR head (1).
+.SH OPTIONS
+.TP
+.BI \-n " count"
+Number of lines to print (default: 10).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments or invalid count.
+.TP
+.B 2
+Cannot open a file.
+.SH EXAMPLES
+.TP
+Print first 10 lines of a file:
+.EX
+hd file.txt
+.EE
+.TP
+Print first 3 lines:
+.EX
+hd -n 3 file.txt
+.EE
+.TP
+Read from stdin:
+.EX
+dmesg | hd -n 5
+.EE
+.SH SEE ALSO
+.BR head (1),
+.BR tl (1),
+.BR cnt (1)
+.SH AUTHORS
+The-JLC-Project contributors.

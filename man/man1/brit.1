@@ -1,0 +1,46 @@
+.TH BRIT 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+brit \- write stdin to stdout and a file simultaneously
+.SH SYNOPSIS
+.B brit
+.I file
+.SH DESCRIPTION
+.B brit
+reads from standard input and writes every byte to both standard output and
+.IR file ,
+similar to
+.BR tee (1).
+.PP
+If
+.I file
+does not exist it is created; if it already exists it is truncated.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open
+.IR file .
+.TP
+.B 3
+I/O error during read or write.
+.SH EXAMPLES
+.TP
+Capture build output while viewing it:
+.EX
+make 2>&1 | brit build.log
+.EE
+.TP
+Log and display a command:
+.EX
+./script.sh | brit script.log
+.EE
+.SH SEE ALSO
+.BR tee (1),
+.BR mat (1)
+.SH AUTHORS
+The-JLC-Project contributors.

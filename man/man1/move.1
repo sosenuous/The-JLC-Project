@@ -1,0 +1,56 @@
+.TH MOVE 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+move \- move or rename a file
+.SH SYNOPSIS
+.B move
+.I source
+.I dest
+.SH DESCRIPTION
+.B move
+renames
+.I source
+to
+.IR dest
+using
+.BR rename (2).
+If
+.I source
+and
+.I dest
+are on different filesystems,
+.BR rename (2)
+will fail; use
+.B cpy
+then
+.B del
+in that case.
+This is the JLC equivalent of
+.BR mv (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+.BR rename (2)
+failed.
+.SH EXAMPLES
+.TP
+Rename a file:
+.EX
+move old.txt new.txt
+.EE
+.TP
+Move to another directory:
+.EX
+move report.pdf docs/report.pdf
+.EE
+.SH SEE ALSO
+.BR mv (1),
+.BR cpy (1),
+.BR del (1)
+.SH AUTHORS
+The-JLC-Project contributors.
