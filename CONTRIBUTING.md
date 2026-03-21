@@ -33,7 +33,7 @@ Contributions that violate these laws (e.g., adding unnecessary features, increa
 - **Rationale**: Excessive includes lead to bloated binaries and slower compilation. It also encourages self-sufficiency and reduces dependencies.
 
 ### General Coding Standards
-- **Language**: C (standard C99 or later for portability).
+- **Language**: C (standard C99 for portability).
 - **Style**: Follow K&R style (as in the Linux kernel or suckless projects). Use tabs for indentation, no trailing whitespace, and consistent naming (`snake_case` for variables/functions).
 - **Error Handling**: Use simple, explicit checks. Avoid exceptions or complex error propagation—return codes or `errno` suffice.
 - **Exit Codes**: For errors, use incrementing integer exit codes starting from 1 (e.g., return 1 for the first type of error, 2 for the second, etc.). This ensures consistent and predictable error signaling across utilities.

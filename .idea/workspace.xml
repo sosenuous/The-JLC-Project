@@ -21,9 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f932c76e-7a3a-4415-83e6-03453cedfe38" name="Changes" comment="Fixed cpy.c to follow suckless software laws and fixed HUGE bug in hn.c">
+    <list default="true" id="f932c76e-7a3a-4415-83e6-03453cedfe38" name="Changes" comment="changed return 1 to return 0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hn.c" beforeDir="false" afterPath="$PROJECT_DIR$/hn.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774080597924</updated>
-      <workItem from="1774080598936" duration="1973000" />
+      <workItem from="1774080598936" duration="2640000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed cpy.c to follow suckless software laws and fixed HUGE bug in hn.c">
       <option name="closed" value="true" />
@@ -139,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774081757774</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed return 1 to return 0">
+      <option name="closed" value="true" />
+      <created>1774085899398</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774085899398</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +171,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed cpy.c to follow suckless software laws and fixed HUGE bug in hn.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed cpy.c to follow suckless software laws and fixed HUGE bug in hn.c" />
+    <MESSAGE value="changed return 1 to return 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed return 1 to return 0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
