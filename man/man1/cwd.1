@@ -1,0 +1,37 @@
+.TH CWD 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+cwd \- print the current working directory
+.SH SYNOPSIS
+.B cwd
+.SH DESCRIPTION
+.B cwd
+prints the absolute path of the current working directory to standard output,
+followed by a newline.
+It uses
+.BR getcwd (3)
+with dynamic allocation so arbitrarily long paths are handled correctly.
+This is the JLC equivalent of
+.BR pwd (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+.BR getcwd (3)
+failed.
+.SH EXAMPLES
+.TP
+Print the current directory:
+.B cwd
+.TP
+Capture in a variable:
+.EX
+HERE=$(cwd)
+echo "Working in $HERE"
+.EE
+.SH SEE ALSO
+.BR pwd (1),
+.BR lf (1)
+.SH AUTHORS
+The-JLC-Project contributors.

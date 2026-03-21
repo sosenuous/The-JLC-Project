@@ -1,0 +1,43 @@
+.TH SRT 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+srt \- sort lines in a file alphabetically
+.SH SYNOPSIS
+.B srt
+.I file
+.SH DESCRIPTION
+.B srt
+reads all lines from
+.IR file ,
+sorts them in ascending lexicographic (byte) order, and writes the sorted
+lines to standard output.
+This is a minimal JLC equivalent of
+.BR sort (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open file.
+.TP
+.B 3
+Memory allocation failure.
+.SH EXAMPLES
+.TP
+Sort a file:
+.EX
+srt names.txt
+.EE
+.TP
+Sort and remove duplicates with spec:
+.EX
+srt words.txt | spec
+.EE
+.SH SEE ALSO
+.BR sort (1),
+.BR spec (1)
+.SH AUTHORS
+The-JLC-Project contributors.

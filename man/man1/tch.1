@@ -1,0 +1,52 @@
+.TH TCH 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+tch \- create a file or update its modification time
+.SH SYNOPSIS
+.B tch
+.IR file ...
+.SH DESCRIPTION
+.B tch
+updates the modification time of each
+.I file
+to the current time.
+If a
+.I file
+does not exist, it is created as an empty file.
+Uses
+.BR utimes (2)
+(passing NULL to set current time) after
+.BR open (2)
+with
+.BR O_CREAT .
+This is the JLC equivalent of
+.BR touch (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot create or open a file.
+.TP
+.B 3
+.BR utimes (2)
+failed.
+.SH EXAMPLES
+.TP
+Create an empty file:
+.EX
+tch newfile.txt
+.EE
+.TP
+Update timestamps on multiple files:
+.EX
+tch a.c b.c c.c
+.EE
+.SH SEE ALSO
+.BR touch (1),
+.BR mkd (1)
+.SH AUTHORS
+The-JLC-Project contributors.

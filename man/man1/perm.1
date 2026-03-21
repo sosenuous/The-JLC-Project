@@ -1,0 +1,49 @@
+.TH PERM 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+perm \- show file permissions in rwxrwxrwx format
+.SH SYNOPSIS
+.B perm
+.IR file ...
+.SH DESCRIPTION
+.B perm
+prints the permission bits of each
+.I file
+as a 9-character string in
+.I rwxrwxrwx
+format (owner, group, other), followed by the filename.
+Uses
+.BR stat (2)
+internally.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+.BR stat (2)
+failed for a file.
+.SH EXAMPLES
+.TP
+Show permissions of a file:
+.EX
+perm /etc/passwd
+.EE
+.TP
+Show permissions of multiple files:
+.EX
+perm *.c
+.EE
+.TP
+Find executables:
+.EX
+lf /usr/bin | xargs perm | jgrep x
+.EE
+.SH SEE ALSO
+.BR stat (1),
+.BR chmod (1),
+.BR chwn (1)
+.SH AUTHORS
+The-JLC-Project contributors.

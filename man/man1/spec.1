@@ -1,0 +1,43 @@
+.TH SPEC 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+spec \- print file contents suppressing adjacent duplicate lines
+.SH SYNOPSIS
+.B spec
+.I file
+.SH DESCRIPTION
+.B spec
+reads
+.I file
+and writes each line to standard output, skipping any line that is identical
+to the immediately preceding line.
+Non-adjacent duplicate lines are
+.B not
+suppressed.
+This is the JLC equivalent of
+.BR uniq (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open file.
+.SH EXAMPLES
+.TP
+Remove adjacent duplicate lines:
+.EX
+spec data.txt
+.EE
+.TP
+Combined with srt to remove all duplicates:
+.EX
+srt file.txt | spec
+.EE
+.SH SEE ALSO
+.BR uniq (1),
+.BR srt (1)
+.SH AUTHORS
+The-JLC-Project contributors.

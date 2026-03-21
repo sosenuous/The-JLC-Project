@@ -1,0 +1,49 @@
+.TH MKD 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+mkd \- create a directory
+.SH SYNOPSIS
+.B mkd
+.RI [ \-p ]
+.IR directory ...
+.SH DESCRIPTION
+.B mkd
+creates each
+.I directory
+with mode 0755 (rwxr-xr-x).
+With
+.BR \-p ,
+all intermediate parent directories are also created as needed
+(no error if the directory already exists).
+This is the JLC equivalent of
+.BR mkdir (1).
+.SH OPTIONS
+.TP
+.B \-p
+Create parent directories as needed.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+.BR mkdir (2)
+failed.
+.SH EXAMPLES
+.TP
+Create a single directory:
+.EX
+mkd projects
+.EE
+.TP
+Create nested directories:
+.EX
+mkd -p a/b/c/d
+.EE
+.SH SEE ALSO
+.BR mkdir (1),
+.BR del (1)
+.SH AUTHORS
+The-JLC-Project contributors.

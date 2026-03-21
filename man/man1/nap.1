@@ -1,0 +1,34 @@
+.TH NAP 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+nap \- sleep for a number of seconds
+.SH SYNOPSIS
+.B nap
+.I seconds
+.SH DESCRIPTION
+.B nap
+pauses execution for the given number of integer seconds, then exits.
+It is the JLC equivalent of
+.BR sleep (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments (usage error).
+.SH EXAMPLES
+.TP
+Sleep for 5 seconds:
+.B nap 5
+.TP
+Use in a script loop:
+.EX
+while true; do
+    do_work
+    nap 60
+done
+.EE
+.SH SEE ALSO
+.BR sleep (1)
+.SH AUTHORS
+The-JLC-Project contributors.

@@ -1,7 +1,19 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-all: mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt
+BINDIR = /usr/bin
+MANDIR = /usr/share/man/man1
+
+BINS = mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt
+
+MANS = man/man1/brit.1 man/man1/chwn.1 man/man1/cnt.1 man/man1/cpy.1 \
+       man/man1/cwd.1 man/man1/del.1 man/man1/dt.1 man/man1/env.1 \
+       man/man1/hd.1 man/man1/hn.1 man/man1/jgrep.1 man/man1/lf.1 \
+       man/man1/lnk.1 man/man1/mat.1 man/man1/mkd.1 man/man1/move.1 \
+       man/man1/nap.1 man/man1/perm.1 man/man1/print.1 man/man1/spec.1 \
+       man/man1/srt.1 man/man1/tch.1 man/man1/tl.1
+
+all: $(BINS)
 
 mat: mat.c
 	$(CC) $(CFLAGS) mat.c -o mat
@@ -73,7 +85,15 @@ dt: dt.c
 	$(CC) $(CFLAGS) dt.c -o dt
 
 clean:
-	rm -f mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt
+	rm -f $(BINS)
 
 install: all
-	sudo cp mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt /usr/bin/
+	install -d $(BINDIR) $(MANDIR)
+	install -m 755 $(BINS) $(BINDIR)
+	install -m 644 $(MANS) $(MANDIR)
+	-mandb -q
+
+uninstall:
+	cd $(BINDIR) && rm -f $(BINS)
+	cd $(MANDIR) && rm -f $(notdir $(MANS))
+	-mandb -q

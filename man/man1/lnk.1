@@ -1,0 +1,57 @@
+.TH LNK 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+lnk \- create a hard or symbolic link
+.SH SYNOPSIS
+.B lnk
+.RI [ \-s ]
+.I target
+.I linkname
+.SH DESCRIPTION
+.B lnk
+creates a link named
+.I linkname
+that points to
+.IR target .
+Without
+.BR \-s ,
+a hard link is created via
+.BR link (2).
+With
+.BR \-s ,
+a symbolic link is created via
+.BR symlink (2).
+This is the JLC equivalent of
+.BR ln (1).
+.SH OPTIONS
+.TP
+.B \-s
+Create a symbolic (soft) link instead of a hard link.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+.BR link (2)
+or
+.BR symlink (2)
+failed.
+.SH EXAMPLES
+.TP
+Create a hard link:
+.EX
+lnk original.txt hardlink.txt
+.EE
+.TP
+Create a symbolic link:
+.EX
+lnk -s /usr/bin/python3 /usr/local/bin/python
+.EE
+.SH SEE ALSO
+.BR ln (1),
+.BR cpy (1)
+.SH AUTHORS
+The-JLC-Project contributors.

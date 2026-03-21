@@ -1,0 +1,50 @@
+.TH LF 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+lf \- list files in a directory
+.SH SYNOPSIS
+.B lf
+.RI [ directory ]
+.SH DESCRIPTION
+.B lf
+lists the names of all entries in
+.IR directory ,
+one per line, sorted alphabetically.
+If no directory is given, the current directory is listed.
+Hidden files (those beginning with
+.BR . )
+are included.
+This is a minimal JLC equivalent of
+.BR ls (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open directory.
+.TP
+.B 3
+Memory allocation failure.
+.SH EXAMPLES
+.TP
+List the current directory:
+.B lf
+.TP
+List a specific directory:
+.EX
+lf /etc
+.EE
+.TP
+Pipe to jgrep to filter:
+.EX
+lf /usr/bin | jgrep py
+.EE
+.SH SEE ALSO
+.BR ls (1),
+.BR cwd (1),
+.BR jgrep (1)
+.SH AUTHORS
+The-JLC-Project contributors.

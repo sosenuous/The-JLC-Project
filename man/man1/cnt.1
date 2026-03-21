@@ -1,0 +1,54 @@
+.TH CNT 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+cnt \- count lines, words, and bytes
+.SH SYNOPSIS
+.B cnt
+.RI [ file ...]
+.SH DESCRIPTION
+.B cnt
+counts lines, words, and bytes in each
+.IR file .
+If no files are given, or if a file is
+.BR \- ,
+standard input is read.
+When multiple files are given a totals line is printed at the end.
+Output format per file is:
+.PP
+.RS
+lines  words  bytes  filename
+.RE
+.PP
+This is the JLC equivalent of
+.BR wc (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open a file.
+.SH EXAMPLES
+.TP
+Count lines/words/bytes in a file:
+.EX
+cnt README.md
+.EE
+.TP
+Count from stdin:
+.EX
+echo "hello world" | cnt
+.EE
+.TP
+Count multiple files with totals:
+.EX
+cnt *.c
+.EE
+.SH SEE ALSO
+.BR wc (1),
+.BR hd (1),
+.BR tl (1)
+.SH AUTHORS
+The-JLC-Project contributors.

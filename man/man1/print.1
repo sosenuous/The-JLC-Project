@@ -1,0 +1,37 @@
+.TH PRINT 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+print \- print a string to stdout
+.SH SYNOPSIS
+.B print
+.I string
+.SH DESCRIPTION
+.B print
+writes
+.I string
+followed by a newline to standard output.
+This is the JLC equivalent of
+.BR echo (1).
+No escape processing is performed; the string is printed literally.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.SH EXAMPLES
+.TP
+Print a message:
+.EX
+print "Hello, world"
+.EE
+.TP
+Use in a script:
+.EX
+print "Build complete"
+.EE
+.SH SEE ALSO
+.BR echo (1),
+.BR printf (1)
+.SH AUTHORS
+The-JLC-Project contributors.

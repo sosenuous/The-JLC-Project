@@ -1,0 +1,53 @@
+.TH CHWN 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+chwn \- change file owner and group
+.SH SYNOPSIS
+.B chwn
+.I owner
+.I group
+.I file
+.SH DESCRIPTION
+.B chwn
+changes the owner and group of
+.IR file .
+Both symbolic names (e.g.
+.BR root ,
+.BR wheel )
+and numeric IDs are accepted.
+.PP
+Symbolic names are resolved via
+.BR getpwnam (3)
+and
+.BR getgrnam (3).
+Numeric strings fall back to
+.BR atoi (3).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Unknown user or group name.
+.TP
+.B 3
+.BR chown (2)
+syscall failed.
+.SH EXAMPLES
+.TP
+Change owner to root, group to wheel:
+.EX
+chwn root wheel /etc/myfile
+.EE
+.TP
+Use numeric IDs:
+.EX
+chwn 0 0 /etc/myfile
+.EE
+.SH SEE ALSO
+.BR chown (1),
+.BR chgrp (1)
+.SH AUTHORS
+The-JLC-Project contributors.

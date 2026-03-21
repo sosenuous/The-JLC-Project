@@ -1,0 +1,56 @@
+.TH CPY 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+cpy \- copy a file
+.SH SYNOPSIS
+.B cpy
+.I source
+.I dest
+.SH DESCRIPTION
+.B cpy
+copies
+.I source
+to
+.IR dest .
+On Linux,
+.BR sendfile (2)
+is used for efficient kernel-space transfer; on other POSIX systems
+a portable
+.BR fread (3)
+/
+.BR fwrite (3)
+loop is used as a fallback.
+.PP
+If
+.I dest
+exists it is overwritten.
+Permissions of the source file are preserved via
+.BR fstat (2).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open source or destination.
+.TP
+.B 3
+I/O error during copy.
+.SH EXAMPLES
+.TP
+Copy a file:
+.EX
+cpy notes.txt notes.bak
+.EE
+.TP
+Copy into a directory path:
+.EX
+cpy config.conf /etc/myapp/config.conf
+.EE
+.SH SEE ALSO
+.BR cp (1),
+.BR move (1)
+.SH AUTHORS
+The-JLC-Project contributors.

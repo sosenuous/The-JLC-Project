@@ -1,0 +1,49 @@
+.TH MAT 1 "2026" "The-JLC-Project" "User Commands"
+.SH NAME
+mat \- print file contents to stdout
+.SH SYNOPSIS
+.B mat
+.IR file ...
+.SH DESCRIPTION
+.B mat
+concatenates and prints the contents of each
+.I file
+to standard output.
+This is the JLC equivalent of
+.BR cat (1).
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Wrong number of arguments.
+.TP
+.B 2
+Cannot open a file.
+.TP
+.B 3
+Read error.
+.SH EXAMPLES
+.TP
+Print a file:
+.EX
+mat README.md
+.EE
+.TP
+Concatenate two files:
+.EX
+mat header.txt body.txt
+.EE
+.TP
+Pipe to jgrep:
+.EX
+mat log.txt | jgrep ERROR
+.EE
+.SH SEE ALSO
+.BR cat (1),
+.BR brit (1),
+.BR hd (1),
+.BR tl (1)
+.SH AUTHORS
+The-JLC-Project contributors.
