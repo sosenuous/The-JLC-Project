@@ -3,8 +3,8 @@
 #define BUFFSIZE 1024
 int main(int argc, char** argv) {
     if (argc > 2) {
-        printf("Usage: hn\n");
-        printf("Usage: hn <name>\n");
+        fprintf(stderr, "Usage: hn\n");
+        fprintf(stderr, "Usage: hn <name>\n");
         return 1;
     }
     char buf[BUFFSIZE];
@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
             return 2;
         }
         while (fgets(buf, BUFFSIZE, f) != NULL) {
-            printf("%s\n", buf);
+            printf("%s", buf);
         }
         fclose(f);
         return 0;
