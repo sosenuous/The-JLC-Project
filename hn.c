@@ -8,25 +8,30 @@ int main(int argc, char** argv) {
         return 1;
     }
     char buf[BUFFSIZE];
-    FILE *f = NULL;
-    if (argc == 2) {
+    FILE *f;
+    if (argc < 2) {
         f = fopen("/etc/hostname", "r");
         if (f == NULL) {
             perror("FATAL ERROR");
             return 2;
         }
         while (fgets(buf, BUFFSIZE, f) != NULL) {
-            printf("%s", buf);
+            printf("%s\n", buf);
         }
         fclose(f);
         return 0;
     }
-    f = fopen("/etc/hostname", "w");
-    if (f == NULL) {
-        perror("FATAL ERROR");
-        return 2;
+
+    if (argc == 2) {
+        f = fopen("/etc/hostname", "w");
+        if (f == NULL) {
+            perror("FATAL ERROR");
+            return 2;
+        }
+        fprintf(f, "%s", argv[1]);
+        fclose(f);
+        return 1;
     }
-    fprintf(f, "%s", argv[1]);
-    fclose(f);
-    return 0;
+    printf("HOW THE FUCK DID YOU MANAGE THAT!?");
+    return -1;
 }
