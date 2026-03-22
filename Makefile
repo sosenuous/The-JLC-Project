@@ -13,6 +13,14 @@ MANS = man/man1/brit.1 man/man1/chwn.1 man/man1/cnt.1 man/man1/cpy.1 \
        man/man1/move.1 man/man1/nap.1 man/man1/perm.1 man/man1/print.1 \
        man/man1/spec.1 man/man1/srt.1 man/man1/tch.1 man/man1/tl.1 \
        man/man1/whoisdat.1 man/man1/wm.1
+BINS = mat jgrep move cpy print lf perm spec srt hn chwn brit cnt hd tl tch mkd del lnk cwd env nap dt wm sim
+
+MANS = man/man1/brit.1 man/man1/chwn.1 man/man1/cnt.1 man/man1/cpy.1 \
+       man/man1/cwd.1 man/man1/del.1 man/man1/dt.1 man/man1/env.1 \
+       man/man1/hd.1 man/man1/hn.1 man/man1/jgrep.1 man/man1/lf.1 \
+       man/man1/lnk.1 man/man1/mat.1 man/man1/mkd.1 man/man1/move.1 \
+       man/man1/nap.1 man/man1/perm.1 man/man1/print.1 man/man1/spec.1 \
+       man/man1/srt.1 man/man1/tch.1 man/man1/tl.1 man/man1/wm.1 man/man1/sim.1
 
 all: $(BINS)
 
@@ -93,6 +101,8 @@ J: J.c
 
 whoisdat: whoisdat.c
 	$(CC) $(CFLAGS) whoisdat.c -o whoisdat
+sim: sim.c
+	$(CC) $(CFLAGS) sim.c -o sim
 
 clean:
 	rm -f $(BINS)
