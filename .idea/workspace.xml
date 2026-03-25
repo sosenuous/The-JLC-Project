@@ -21,12 +21,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f932c76e-7a3a-4415-83e6-03453cedfe38" name="Changes" comment="added man page for wm.c and added wm to Makefile">
-      <change afterPath="$PROJECT_DIR$/man/man1/sim.1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sim.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+    <list default="true" id="f932c76e-7a3a-4415-83e6-03453cedfe38" name="Changes" comment="added man page for sim.c and added sim to Makefile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774080597924</updated>
       <workItem from="1774080598936" duration="6970000" />
-      <workItem from="1774174534272" duration="391000" />
+      <workItem from="1774174534272" duration="2882000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed cpy.c to follow suckless software laws and fixed HUGE bug in hn.c">
       <option name="closed" value="true" />
@@ -191,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774108943377</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added man page for sim.c and added sim to Makefile">
+      <option name="closed" value="true" />
+      <created>1774175027575</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774175027575</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +224,8 @@
     <MESSAGE value="added nap.c" />
     <MESSAGE value="added dt.c" />
     <MESSAGE value="added man page for wm.c and added wm to Makefile" />
-    <option name="LAST_COMMIT_MESSAGE" value="added man page for wm.c and added wm to Makefile" />
+    <MESSAGE value="added man page for sim.c and added sim to Makefile" />
+    <option name="LAST_COMMIT_MESSAGE" value="added man page for sim.c and added sim to Makefile" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
