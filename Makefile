@@ -1,6 +1,6 @@
-CC = gcc
-CFLAGS = -Wall -Wextra
-
+COMPILER ?= gcc
+CC = $(COMPILER)
+CFLAGS = -Wall -Wextra -O2
 BINDIR = /usr/bin
 MANDIR = /usr/share/man/man1
 
