@@ -101,6 +101,7 @@ J: J.c
 
 whoisdat: whoisdat.c
 	$(CC) $(CFLAGS) whoisdat.c -o whoisdat
+
 sim: sim.c
 	$(CC) $(CFLAGS) sim.c -o sim
 

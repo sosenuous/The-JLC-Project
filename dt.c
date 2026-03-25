@@ -5,12 +5,13 @@
 int main(int argc, char** argv)
 {
 	if (argc > 2) {
-		fprintf(stderr, "Usage: dt [--iso-time | --us-time] [-ds=<char>]\n");
+		fprintf(stderr, "Usage: dt [--iso-time | --us-time] [-ds=<char>] [-ts=<char>]\n");
 		return 1;
 	}
 
 	char date_separator = '/';
 	int iso_time = 0, us_time = 0;
+	char time_separator = ':';
 
 	for (int i = 1; i < argc; i++) {
 		if (strcmp(argv[i], "--iso-time") == 0 || strcmp(argv[i], "-iso") == 0) {
@@ -26,8 +27,18 @@ int main(int argc, char** argv)
 			date_separator = argv[i][4];
 		}
 		else if (strcmp(argv[i], "--help") == 0) {
-			printf("Usage: dt [--iso-time | --us-time] [-ds=<char>]\n");
+			printf("Usage: dt [--iso-time | --us-time] [-ds=<char>] [-ts=<char>]\n");
 			return 0;
+		}
+		else if (strcmp(argv[i], "--time-separator=") == 0) {
+			time_separator = argv[i][17];
+		}
+		else if (strcmp(argv[i], "-ts=") == 0) {
+			time_separator = argv[i][4];
+		}
+		else {
+			fprintf(stderr, "Unknown option: %s\n", argv[i]);
+			return 1;
 		}
 	}
    time_t now = time(NULL);
@@ -42,5 +53,7 @@ int main(int argc, char** argv)
 	else{
 	    printf("%02d%c%02d%c%04d\n", tm->tm_mday, date_separator, tm->tm_mon + 1, date_separator, tm->tm_year + 1900);
     }
+	printf("%02d%c%02d%c%02d\n", tm->tm_hour, time_separator, tm->tm_min, time_separator, tm->tm_sec);
+
     return 0;
 }
